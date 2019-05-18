@@ -1,0 +1,88 @@
+/* COLOURS */
+/* #0079C1 - BLUE */
+/* #ED1024 - RED */
+/* #D6EAF8 - LIGHT BLUE */  
+
+/* TEXT */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2{
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+h3{
+    margin:0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* WRAPPERS */
+
+.content-wrapper{
+    padding: 100px;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.question-answer-wrapper{
+    width: auto;
+    background-color: 
+}
+
+.question-wrapper{
+    padding: 75px 0;
+}
+
+.answer-wrapper{
+}
+
+.prompt-wrapper{
+    padding-top: 30px;
+}
+
+/* BUTTON */
+
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    display: inline-block;
+    padding: 10px 25px;
+    font-weight: 1000;
+    font-size: 17.5px; 
+    text-decoration: none;
+    border-radius: 20px;
+    -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: black;
+    color: white;
+    margin: 0 15px;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: white;
+    color: black;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: 3px solid gray;
+}
