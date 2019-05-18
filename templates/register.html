@@ -2,15 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet"
+        href= "../static/css/register.css"
+        />
+
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
     <title>Title</title>
 
 </head>
-<body>
-    <form action="/register" method="post">
-        <input type="email" name="email">
-        <input type="password" name="pass">
-        <input type="submit" name="submit">
+<body class="content">
+    <div class="cd">
+        <div id="register">
+            <h3>Register</h3>
+        </div>
+    <form action="/register" method="post" id="rform">
+         <div id="el"><span style="letter-spacing: 5px">Emai</span>l</div><br>
+            <input type="email" name="email" id="text-field">
+            <br/>
+            <br/>
+        <div id="el"><span style="letter-spacing: 5px">Passwor</span>d</div><br>
+            <input type="password" name="pass" id="text-field">
+            <br/>
+            <br/>
+            <input type="submit" name="submit">
 
     </form>
+    </div>
 </body>
-</html>s
+</html>
