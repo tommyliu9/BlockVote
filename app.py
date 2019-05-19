@@ -14,7 +14,7 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
 
-@app.route('/')
+@app.route('/',  methods=["GET","POST"])
 def index():
     return render_template('index.html')
 
@@ -26,7 +26,7 @@ def register():
         password = request.form['password']
         try:
             auth.create_user_with_email_and_password(username,password)
-            return render_template("login successful")
+            return render_template("index.html")
         except:
             return "registration failed"
 
@@ -52,7 +52,6 @@ def login():
     except:
         print("login failed")
     return render_template('login.html')
-
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", debug=True, port=5000)
