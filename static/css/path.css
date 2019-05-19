@@ -1,0 +1,85 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: black;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: white;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center
+}
+
+.button1 {
+    background-color: white; /* Green */
+    border-style: solid;
+    border-width: 0;
+    border-radius: 3px;
+    color: black;
+    padding 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0;
+    height: 200px;
+    width:200px;
+
+}
+
+.button2 {
+    background-color: black; /* Green */
+    border-style: solid;
+    border-width: 0;
+    border-radius: 3px;
+    color: white;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0;
+    height: 200px;
+    width:200px;
+
+}
+
+.button1:hover{
+    background-color: black;
+    border-color: white;
+    color: white;
+    border-width: 2px;
+    border-radius: 3px;
+}
+
+.button2:hover{
+    background-color: white;
+    border-color: black;
+    color: black;
+    border-width: 2px;
+    border-radius: 3px;
+}

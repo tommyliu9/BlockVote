@@ -41,17 +41,11 @@ def create():
 def vote():
     return render_template('vote.html')
 
-@app.route('/login', methods=["GET","POST"])
-def login():
-    try:
-        if request.method == "POST":
-            username = request.form['email']
-            password = request.form['password']
-            user = auth.sign_in_with_email_and_password(username,password)
-            auth.get_account_info(user['idToken'])
-    except:
-        print("login failed")
-    return render_template('login.html')
+@app.route('/path')
+def path():
+    return render_template('path')
+
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", debug=True, port=5000)
