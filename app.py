@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import pyrebase
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 app = Flask(__name__)
 app.config['SQLAlCHEMY_DATABASE_URI'] = 'sqlite://site.db'
 firebaseConfig = {
@@ -53,9 +53,7 @@ def index():
             username = request.form['email']
             password = request.form['password']
             user = auth.sign_in_with_email_and_password(username,password)
-            user = User(email=username, password=password)
-            db.session.add(user)
-            db.session.commit()
+            return redirect(url_for("path"))
 
     except:
         print("login failed")
@@ -63,16 +61,18 @@ def index():
 
 @app.route('/register', methods=["GET","POST"])
 def register():
-
     if request.method == "POST":
         username = request.form['email']
         password = request.form['password']
         try:
             auth.create_user_with_email_and_password(username,password)
-            return render_template("index.html")
+            user = User(email=username,password=password)
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for("index"))
+
         except:
             return "registration failed"
-
     else:
         return render_template('register.html',value="Registration failed, try again.")
 
