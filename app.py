@@ -53,7 +53,7 @@ def vote():
     return render_template('vote.html')
 
 @app.route('/path')
-def vote():
+def path():
     return render_template('vote.html')
 if __name__ == '__main__':
     data = {
