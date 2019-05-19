@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-        <link rel="stylesheet"
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
         href= "../static/css/index.css"
         />
 
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
-		<title>Title</title>
-	</head>
-	<body class="content">
+    <title>Title</title>
+    
+
+</head>
+    
+<body class="content">
     <div class="cd">
-        <div id="login">
+        <div id="register">
             <h3>Login</h3>
         </div>
-
-        <form id="loginform">
-            <div id="el"><span style="letter-spacing: 5px">Emai</span>l</div><br>
-            <input type="email" id="text-field">
+        
+    <form action="/register" method="post" id="rform">
+         
+            <input type="email" name="email" id="text-field" placeholder="Email">
             <br/>
             <br/>
-            <div id="el"><span style="letter-spacing: 5px">Passwor</span>d</div><br>
-            <input type="password" id="text-field">
-
-        </form>
-        <p id="lnk">
-            New User? <a id="lnk1" href="{{ url_for('register') }}">Click to Register!</a>
-        </p>
+       
+            <input type="password" name="pass" id="text-field" placeholder="Password">
+            <br/>
+            <br/>
+            <input class="button" type="submit" name="submit">
+    </form>
+    
     </div>
-
-	</body>
+</body>
 </html>
