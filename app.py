@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template
 import pyrebase
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
+app.config['SQLAlCHEMY_DATABASE_URI'] = 'sqlite://site.db'
 firebaseConfig = {
     "apiKey": "AIzaSyCEJUbIKPdjh9817ydlSpQlwoTKGFlxwz0",
     "authDomain": "blockvote-e7945.firebaseapp.com",
@@ -11,11 +13,19 @@ firebaseConfig = {
     "appId": "1:70448506085:web:a8dac621838a33e4"
   }
 firebase = pyrebase.initialize_app(firebaseConfig)
+db = SQLAlchemy(app)
 auth = firebase.auth()
-
-
 @app.route('/',  methods=["GET","POST"])
 def index():
+    try:
+        if request.method == "POST":
+            username = request.form['email']
+            password = request.form['password']
+            user = auth.sign_in_with_email_and_password(username,password)
+            auth.get_account_info(user['idToken'])
+
+    except:
+        print("login failed")
     return render_template('index.html')
 
 @app.route('/register', methods=["GET","POST"])
@@ -31,7 +41,7 @@ def register():
             return "registration failed"
 
     else:
-        return render_template('register.html')
+        return render_template('register.html',value="Registration failed, try again.")
 
 @app.route('/create')
 def create():
@@ -43,9 +53,8 @@ def vote():
 
 @app.route('/path')
 def path():
+
     return render_template('path')
-
-
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", debug=True, port=5000)

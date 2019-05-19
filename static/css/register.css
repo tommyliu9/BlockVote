@@ -24,8 +24,10 @@ h3 {
     width: 400px;
     height: 400px;
     position: absolute;
-    left: 34%;
-    top: 19%;
+    left: 50%;
+    margin-left: -202px;
+    top: 50%;
+    margin-top: -202px;
 }
 
 #rform {
