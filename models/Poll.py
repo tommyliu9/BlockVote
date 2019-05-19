@@ -1,6 +1,4 @@
-from app import app
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy(app)
+from app import db
 
 class Poll(db.Model):
     id = db.Column(db.Integer, primary_key=True)

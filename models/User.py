@@ -1,7 +1,4 @@
-from app import app
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy(app)
-
+from app import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique= True, nullable=False)
@@ -11,3 +8,4 @@ class User(db.Model):
     def __repr__(self):
         return f"User ('{self.email}'"
 
+db.create_all()
