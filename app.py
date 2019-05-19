@@ -45,7 +45,7 @@ class User(db.Model):
     def __repr__(self):
         return f"User ('{self.email}', '{self.polls}')"
 
-
+db.create_all()
 @app.route('/',  methods=["GET","POST"])
 def index():
     try:
@@ -53,11 +53,12 @@ def index():
             username = request.form['email']
             password = request.form['password']
             user = auth.sign_in_with_email_and_password(username,password)
-            return redirect(url_for("path"))
+            return render_template("path.html")
 
     except:
         print("login failed")
     return render_template('index.html')
+
 
 @app.route('/register', methods=["GET","POST"])
 def register():
@@ -72,7 +73,7 @@ def register():
             return redirect(url_for("index"))
 
         except:
-            return "registration failed"
+            print(username, password)
     else:
         return render_template('register.html',value="Registration failed, try again.")
 
